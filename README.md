@@ -59,7 +59,7 @@ Please follow the below steps to build the infra :
  
  subnets map should look something like this:
  
-   subnets:
+subnets:
   - cidr: 10.0.32.0/19
     name: us-east-1a
     type: Private
@@ -87,7 +87,7 @@ Please follow the below steps to build the infra :
    
  There should be one Private type subnet and one Utility (public) type subnet in each availability zone. We need to modify this section by replacing each cidr with the corresponding existing subnet ID for that region. For the Private subnets, we also need to specify our NAT gateway ID in an egress key. Modify your subnets section to look like this:
  
-   subnets:
+ subnets:
   - egress: nat-0d0e915d4f79fedae
     id: subnet-08f9639ba62029698
     name: us-east-1a
