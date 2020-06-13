@@ -59,62 +59,62 @@ Please follow the below steps to build the infra :
  
  subnets map should look something like this
  
- subnets: \
+ subnets: 
   - cidr: 10.0.32.0/19 \
     name: us-east-1a  \
     type: Private   \
-    zone: us-east-1a \
+    zone: us-east-1a 
   - cidr: 10.0.64.0/19 \
     name: us-east-1b \
     type: Private \
-    zone: us-east-1b \
+    zone: us-east-1b 
   - cidr: 10.0.96.0/19  \
     name: us-east-1c \
     type: Private \
-    zone: us-east-1c \
+    zone: us-east-1c 
   - cidr: 10.0.0.0/22 \
     name: utility-us-east-1a \
     type: Utility \
-    zone: us-east-1a \
+    zone: us-east-1a 
   - cidr: 10.0.4.0/22 \
     name: utility-us-east-1b \
     type: Utility \
-    zone: us-east-1b \
+    zone: us-east-1b 
   - cidr: 10.0.8.0/22 \
     name: utility-us-east-1c \
     type: Utility \
-    zone: us-east-1c \
+    zone: us-east-1c 
    
  There should be one Private type subnet and one Utility (public) type subnet in each availability zone. We need to modify this section by replacing each cidr with the corresponding existing subnet ID for that region. For the Private subnets, we also need to specify our NAT gateway ID in an egress key. Modify your subnets section to look like this:
  
- subnets: \
+ subnets: 
   - egress: nat-0d0e915d4f79fedae \
     id: subnet-08f9639ba62029698 \
     name: us-east-1a \
     type: Private \
-    zone: us-east-1a \
+    zone: us-east-1a 
   - egress: nat-00b31045cc8b0ab4d \
     id: subnet-04426beb64cc855fa \
     name: us-east-1b \
     type: Private \
-    zone: us-east-1b \
+    zone: us-east-1b 
   - egress: nat-0f9369d8dfe7db024 \
     id: subnet-04753570cfa98260d \
     name: us-east-1c \
     type: Private \
-    zone: us-east-1c \
+    zone: us-east-1c 
   - id: subnet-0e98bb2241c30f050 \
     name: utility-us-east-1a \
     type: Utility \
-    zone: us-east-1a \
+    zone: us-east-1a 
   - id: subnet-02a3be7863e7b405d \
     name: utility-us-east-1b \
     type: Utility \
-    zone: us-east-1b \
+    zone: us-east-1b 
   - id: subnet-0c96e1c521ad5b3a4 \
     name: utility-us-east-1c \
     type: Utility \
-    zone: us-east-1c \
+    zone: us-east-1c 
    
  The IDs will be different, you can get the ids from the AWS or from the terraform output.
  
