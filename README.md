@@ -55,7 +55,7 @@ Please follow the below steps to build the infra :
 
  In-order to avoid the conflict, we need to manually edit the cluster and change the subnet field.
  
- kops edit cluster --name <clustername> --state <s3 bucket state store>
+ kops edit cluster --name clustername --state s3-bucket-state-store 
  
  subnets map should look something like this:
  
@@ -122,17 +122,17 @@ Please follow the below steps to build the infra :
  
 3: Update the cluster , so that the changes will be applied and will build the cluster:
 
- kops update cluster --name <clustername> --state <s3 bucket state store> --yes
+ kops update cluster --name clustername --state s3-bucket-state-store --yes
  
 4: Validate the cluster:
 
- kops validate cluster --name <clustername> --state <s3 bucket state store>
+ kops validate cluster --name clustername --state s3-bucket-state-store
  
  It might take a few minutes in-order to complete the setup.
  
 5: Once the validation is successful, you can run the script "deployments.sh" in-order to deploy the EFK and Wordpress
 
-
+#NB: Replace clustername with original cluster anme and the s3-bucket-state-store with original state store while runnig edit,update,validate etc
 
 # Destroy the cluster:
 
