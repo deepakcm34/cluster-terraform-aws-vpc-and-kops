@@ -136,4 +136,4 @@ subnets:
 
 # Destroy the cluster:
 
-Run the script destroy-cluster.sh in-order to destroy everything you built.
+Run the script destroy-cluster.sh in-order to destroy everything you built..
